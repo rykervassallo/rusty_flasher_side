@@ -1,7 +1,7 @@
 use std::io::{self, Read, Write};
 use serialport::SerialPort;
 
-pub fn echo(mut port : Box<dyn SerialPort>) -> io::Result<()> {
+pub fn echo(port : &mut Box<dyn SerialPort>) -> io::Result<()> {
     let mut stdout : io::Stdout = io::stdout();
     println!("TTY opened, printing ingress to terminal…");
     let mut buf: [u8; 1024] = [0u8; 1024];
@@ -13,6 +13,9 @@ pub fn echo(mut port : Box<dyn SerialPort>) -> io::Result<()> {
              */
             Ok(n) if n > 0 => {
                 stdout.write_all(&buf[..n])?;
+                // for &b in &buf[..n] {
+                //     write!(stdout, "{:02x}", b)?;
+                // }
                 stdout.flush()?;
             }
 
