@@ -15,3 +15,15 @@ path = "src/main.rs"
 [[bin]]
 name = "controller"
 path = "src/controller.rs"
+
+[[bin]]
+name = "monitor"
+path = "src/monitor.rs"
+
+[[bin]]
+name = "controller_pulse"
+path = "src/controller_pulse.rs"
+
+[[bin]]
+name = "controller_degree"
+path = "src/controller_degree.rs"
